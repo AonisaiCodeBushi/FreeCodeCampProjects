@@ -16,6 +16,7 @@ html {
 #main-doc {
   margin-left: 18%;
 }
+
 @media (max-width: 991px){
   #main-doc {
     position:static;
