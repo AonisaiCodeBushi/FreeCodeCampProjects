@@ -1,0 +1,421 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+			content="width=device-width, initial-scale=1">
+
+	<!--Bootstrap CSS:-->
+	<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<!--Awesome Fonts:-->
+	<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--Bootstrap Icons:-->
+	<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--Google Icons:-->
+	<link rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<title>Emmet Technical Page</title>
+</head>
+<body>
+<div class="container-fluid">
+<nav id="navbar" class="navbar row-sm-12 col-lg-2 border-right flex-column">
+	<header class="h3 mx-auto">Emmet Abbreviations</header>
+	<ul class="nav flex-column">
+		<li class="nav-item border-top"><a class="nav-link" href="#Elements">Elements</a></li>
+		<li class="nav-item border-top"><a class="nav-link" href="#Nesting_Operators">Nesting Operators</a></li>
+		<li class="nav-item border-top"><a class="nav-link" href="#Grouping:_()">Grouping: ()</a></li>
+		<li class="nav-item border-top"><a class="nav-link" href="#Attribute_Operators">Attribute Operators</a></li>
+		<li class="nav-item border-top"><a class="nav-link" href="#Text:_{}">Text: {}</a></li>
+		<li class="nav-item border-top"><a class="nav-link" href="#Notes_on_Formatting">Notes on Formatting</a></li>
+	</ul>
+</nav>
+<main id="main-doc" class="row-sm-12 col-lg-9">
+
+
+
+	<section class="main-section" id="Elements">
+		<header class="mainSectionHeader h3">Elements</header>
+		<p>
+			You can use elements’ names like div or p to generate HTML tags. 
+			Emmet doesn’t have a predefined set of available tag names, you 
+			can write any word and transform it into a tag: div → &ltdiv&gt&lt/ltdiv&gt, 
+			foo → &ltfoo&gt&lt/foo&gt and so on.
+		</p>
+    <br />
+	</section>
+
+
+
+	<section class="main-section" id="Nesting_Operators">
+		<header class="mainSectionHeader h3">Nesting Operators</header>
+		<p>
+			Nesting operators are used to position abbreviation elements inside 
+			generated tree: whether it should be placed inside or near the 
+			context element.
+		</p>
+    <br />
+		<p>
+			<strong class="h4">Child: &gt</strong>
+			You can use &gt operator to nest elements inside each other:
+			<p><code>div&gtul&gtli</code></p>
+			... will produce:
+			<p><pre><code>
+&ltdiv&gt
+	&ltul&gt
+		&ltli&gt&lt/li&gt
+	&lt/ul&gt
+&lt/div&gt
+			</code></pre></p>
+		</p>
+    <br />
+		<p>
+			<strong class="h4">Sibling +</strong>
+			Use + operator to place elements near each other, on the same level:
+			<p><code>div+p+bq</code></p>
+			... will output:
+			<p><pre><code>
+&ltdiv&gt&lt/div&gt
+&ltp&gt&lt/p&gt
+&ltblockquote&gt&lt/blockquote&gt
+			</code></pre></p>
+		</p>
+   <br />
+		<p>
+			<strong class="h4">Climb-up: ^</strong>
+			With > operator you’re descending down the generated tree and 
+			positions of all sibling elements will be resolved against the 
+			most deepest element:
+			<p><code>div+div>p>span+em </code></p>
+			... wil be expanded to:
+			<p><pre><code>
+&ltdiv&gt&lt/div&gt
+&ltdiv&gt
+	&ltp&gt&ltspan&gt&lt/span&gt&ltem&gt&lt/em&gt&lt/p&gt
+&lt/div&gt
+			</code></pre></p>
+			With ^ operator, you can climb one level up the tree and change 
+			context where following elements should appear:
+			<p><code>div+div>p>span+em^bq</code></p>
+			... outputs to:
+			<p><pre><code>
+&ltdiv&gt&lt/div&gt
+&ltdiv&gt
+	&ltp&gt&ltspan&gt&lt/span&gt&ltem&gt&lt/em&gt&lt/p&gt
+	&ltblockquote&gt&lt/blockquote&gt
+&lt/div&gt
+			</code></pre></p>
+			You can use as many ^ operators as you like, each operator will 
+			move one level up:
+			<p><code>div+div>p>span+em^^^bq</code></p>
+			... will output to:
+			<p><pre><code>
+&ltdiv&gt&lt/div&gt
+&ltdiv&gt
+	&ltp&gt&ltspan&gt&lt/span&gt&ltem&gt&lt/em&gt&lt/p&gt
+&lt/div&gt
+&ltblockquote&gt&lt/blockquote&gt
+			</code></pre></p>
+		</p>
+<br />
+		<p>
+			<strong class="h4">Multiplication: *</strong>
+			With * operator you can define how many times element should be 
+			outputted:
+			<p><code>ul>li*5</code></p>
+			... outputs to:
+			<p><pre><code>
+&ltul&gt
+	&ltli&gt&lt/li&gt
+	&ltli&gt&lt/li&gt
+	&ltli&gt&lt/li&gt
+	&ltli&gt&lt/li&gt
+	&ltli&gt&lt/li&gt
+&lt/ul&gt
+			</code></pre></p>
+		</p>
+<br />
+	</section>
+
+
+
+	<section class="main-section" id="Grouping:_()">
+		<header class="mainSectionHeader h3">Grouping: ()</header>
+		<p>
+			Parenthesises are used by Emmets’ power users for grouping subtrees in 
+			complex abbreviations:
+			<p><code>div>(header>ul>li*2>a)+footer>p</code></p>
+			... expands to:
+			<p><pre><code>
+&ltdiv&gt
+	&ltheader&gt
+		&ltul&gt
+			&ltli&gt&lta href=""&gt&lt/a&gt&lt/li&gt
+			&ltli&gt&lta href=""&gt&lt/a&gt&lt/li&gt
+		&lt/ul&gt
+	&lt/header&gt
+	&ltfooter&gt
+		&ltp&gt&lt/p&gt
+	&lt/footer&gt
+&lt/div&gt
+			</code></pre></p>
+			If you’re working with browser’s DOM, you may think of groups as 
+			Document Fragments: each group contains abbreviation subtree and 
+			all the following elements are inserted at the same level as the 
+			first element of group.
+		</p>
+		<p>
+			You can nest groups inside each other and combine them with multiplication 
+			* operator:
+			<p><code>(div>dl>(dt+dd)*3)+footer>p</code></p>
+			... produces:
+			<p><pre><code>
+&ltdiv&gt
+	&ltdl&gt
+		&ltdt&gt&lt/dt&gt
+		&ltdd&gt&lt/dd&gt
+		&ltdt&gt&lt/dt&gt
+		&ltdd&gt&lt/dd&gt
+		&ltdt&gt&lt/dt&gt
+		&ltdd&gt&lt/dd&gt
+	&lt/dl&gt
+&lt/div&gt
+&ltfooter&gt
+	&ltp&gt&lt/p&gt
+&lt/footer&gt
+			</code></pre></p>
+			With groups, you can literally write full page mark-up with a single 
+			abbreviation, but please don’t do that.
+		</p>
+<br />
+	</section>
+
+
+
+	<section class="main-section" id="Attribute_Operators">
+		<header class="mainSectionHeader h3">Attribute Operators</header>
+		<p>
+			Attribute operators are used to modify attributes of outputted 
+			elements. For example, in HTML and XML you can quickly add class 
+			attribute to generated element.
+		</p>
+    <br />
+		<p>
+			<strong class="h4">ID and CLASS</strong>
+			In CSS, you use elem#id and elem.class notation to reach the elements 
+			with specified id or class attributes. In Emmet, you can use the very 
+			same syntax to add these attributes to specified element:
+			<p><code>div#header+div.page+div#footer.class1.class2.class3</code></p>
+			... will output:
+			<p><pre><code>
+&ltdiv id="header"&gt&lt/div&gt
+&ltdiv class="page"&gt&lt/div&gt
+&ltdiv id="footer" class="class1 class2 class3"&gt&lt/div&gt
+			</code></pre></p>
+		</p>
+<br />
+		<p>
+			<strong class="h4">Custom attributes</strong>
+			You can use [attr] notation (as in CSS) to add custom attributes 
+			to your element:
+			<p><code>td[title="Hello world!" colspan=3]</code></p>
+			... outputs:
+			<p><code>&lttd title="Hello world!" colspan="3"&gt&lt/td&gt</code></p>
+			<ul>
+				<li>
+					You can place as many attributes as you like inside square 
+					brackets.
+				</li>
+				<li>
+					You don’t have to specify attribute values: td[colspan title] 
+					will produce &lttd colspan="" title=""&gt with tabstops inside 
+					each empty attribute (if your editor supports them).
+				</li>
+				<li>
+					You can use single or double quotes for quoting attribute 
+					values.
+				</li>
+				<li>
+					You don’t need to quote values if they don’t contain spaces: 
+					td[title=hello colspan=3] will work.
+				</li>
+			</ul>
+		</p>
+<br />
+		<p>
+			<strong class="h4">Item numbering: $</strong>
+			With multiplication * operator you can repeat elements, but with $ 
+			you can number them. Place $ operator inside element’s name, 
+			attribute’s name or attribute’s value to output current number of 
+			repeated element:
+			<p><code>ul>li.item$*5</code></p>
+			... outputs to:
+			<p><pre><code>
+&ltul&gt
+	&ltli class="item1"&gt&lt/li&gt
+	&ltli class="item2"&gt&lt/li&gt
+	&ltli class="item3"&gt&lt/li&gt
+	&ltli class="item4"&gt&lt/li&gt
+	&ltli class="item5"&gt&lt/li&gt
+&lt/ul&gt
+			</code></pre></p>
+			You can use multioke $ in a row to pad number wih zeros:
+			<p><code>ul>li.item$$$*5</code></p>
+			... outputs to:
+			<p><pre><code>
+&ltul&gt
+	&ltli class="item001"&gt&lt/li&gt
+	&ltli class="item002"&gt&lt/li&gt
+	&ltli class="item003"&gt&lt/li&gt
+	&ltli class="item004"&gt&lt/li&gt
+	&ltli class="item005"&gt&lt/li&gt
+&lt/ul&gt
+			</code></pre></p>
+		</p>
+<br />
+		<p>
+			<strong class="h4">Changing numbering base and direction</strong>
+			With @ modifier, you can change numbering direction (ascending or 
+			descending) and base (e.g. start value).
+			<p>
+				For example, to change direction, add @- after $:
+			</p>
+			<p><code>ul>li.item$@-*5</code></p>
+			... outputs to:
+			<p><pre><code>
+&ltul&gt
+	&ltli class="item5"&gt&lt/li&gt
+	&ltli class="item4"&gt&lt/li&gt
+	&ltli class="item3"&gt&lt/li&gt
+	&ltli class="item2"&gt&lt/li&gt
+	&ltli class="item1"&gt&lt/li&gt
+&lt/ul&gt
+			</code></pre></p>
+			To change counter base value, add @N modifier to $:
+			<p><code>ul>li.item$@3*5</code></p>
+			... transforms to:
+			<p><pre><code>
+&ltul&gt
+	&ltli class="item3"&gt&lt/li&gt
+	&ltli class="item4"&gt&lt/li&gt
+	&ltli class="item5"&gt&lt/li&gt
+	&ltli class="item6"&gt&lt/li&gt
+	&ltli class="item7"&gt&lt/li&gt
+&lt/ul&gt
+			</code></pre></p>
+			You can use these modifiers together:
+			<p><code>ul>li.item$@-3*5</code></p>
+			... is transformed to:
+			<p><pre><code>
+&gtul&gt
+	&ltli class="item7"&gt&lt/li&gt
+	&ltli class="item6"&gt&lt/li&gt
+	&ltli class="item5"&gt&lt/li&gt
+	&ltli class="item4"&gt&lt/li&gt
+	&ltli class="item3"&gt&lt/li&gt
+&gt/ul&gt
+			</code></pre></p>
+		</p>
+<br />
+	</section>
+
+
+
+	<section class="main-section" id="Text:_{}">
+		<header class="mainSectionHeader h3">Text: {}</header>
+		<p>
+			You can use curly braces to add text to element:
+      <p><code>a{Click me}</code></p>
+			... will produce:
+			<p><code>&lta href=""&gtClick me&lt/a&gt</code></p>
+			Note that {text} is used and parsed as a separate element 
+			(like, div, p etc.) but has a special meaning when written 
+			right after element. For example, a{click} and a>{click} will 
+			produce the same output, but a{click}+b{here} and a>{click}+b{here} 
+			won’t:
+      		<p><pre><code>
+&lt!-- a{click}+b{here} --&gt
+&lta href=""&gtclick&lt/a&gt&ltb&gthere&lt/b&gt
+
+&lt!-- a&gt{click}+b{here} --&gt
+&lta href=""&gtclick&ltb&gthere&lt/b&gt&lt/a&gt
+			</code></pre></p>
+			In second example the &ltb&gt element is placed inside &lta&gt element. And 
+				that’s the difference: when {text} is written right after element, 
+				it doesn’t change parent context. Here’s more complex example 
+				showing why it is important:
+			<p><code>p&lt{Click }+a{here}+{ to continue}</code></p>
+			... produces:
+			<p><code>&ltp&gtClick &lta href=""&gthere&lt/a&gt to continue&lt/p&gt</code></p>
+			In this example, to write Click here to continue inside &l&ltp&gt element 
+			we have explicitly move down the tree with &gt operator after p, 
+			but in case of a element we don’t have to, since we need &l&lta&gt 
+			element with here word only, without changing parent context.
+			<p>
+				For comparison, here’s the same abbreviation written without 
+				child > operator:
+			</p>
+			<p><code>p{Click }+a{here}+{ to continue}</code></p>
+			... produces:
+			<p><pre><code>
+&ltp&gtClick &lt/p&gt
+&lta href=""&gthere&lt/a&gt to continue
+			</code></pre></p>
+		</p>
+<br />
+	</section>
+
+
+
+	<section class="main-section" id="Notes_on_Formatting">
+		<header class="mainSectionHeader h3">Notes on Formatting</header>
+		<p>
+			When you get familiar with Emmet’s abbreviations syntax, you may 
+			want to use some formatting to make your abbreviations more 
+			readable. For example, use spaces between elements and operators, 
+			like this:
+		</p>
+		<p><code>(header &gt ul.nav &gt li*5) + footer</code></p>
+		<p>
+			But it won’t work, because space is a stop symbol where Emmet 
+			stops abbreviation parsing
+		</p>
+		<p>
+			Many users mistakenly think that each abbreviation should be 
+			written in a new line, but they are wrong: you can type and 
+			expand abbreviation anywhere in the text:
+		</p>
+		<p>
+			This is why Emmet needs some indicators (like spaces) where it 
+			should stop parsing to not expand anything that you don’t need. 
+			If you’re still thinking that such formatting is required for 
+			complex abbreviations to make them more readable:
+		</p>
+		<p>
+			<ul>
+				<li>
+					Abbreviations are not a template language, they don’t have 
+					to be “readable”, they have to be “quickly expandable and 
+					removable”.
+				</li>
+				<li>
+					You don’t really need to write complex abbreviations. Stop 
+					thinking that “typing” is the slowest process in 
+					web-development. You’ll quickly find out that constructing a 
+					single complex abbreviation is much slower and error-prone 
+					than constructing and typing a few short ones.
+				</li>
+			</ul>
+		</p>
+	</section>
+</main>
+</div>
+</body>
+</html>

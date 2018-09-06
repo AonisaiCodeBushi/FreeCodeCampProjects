@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+body {
+
+  background-image: linear-gradient(#FFD740,#FFE0B2);
+}
+
+#main-background-div {
+  width: 75%;
+  height: 100%;
+  background: #424242;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%239C92AC" fill-opacity="0.4" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');
+  opacity: 0.25;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+}
+
+#main-div {
+  width: 75%;
+  height: 100%;
+  margin: auto;
+  padding-bottom:30px;
+
+}
+
+.row {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+}
+
+#title-row {
+  font-size: 24px;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  padding: 0px;
+}
+
+#description {
+  max-width: 70%;
+  text-align: center;
+}
+
+.left-col {
+  width: 50%;
+  text-align: right;
+  margin: 10px 5px 10px 10%;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.right-col {
+  width: 50%;
+  text-align: left;
+  display:inline-block;
+  margin: 10px 10% 10px 5px;
+  vertical-align:middle;
+}

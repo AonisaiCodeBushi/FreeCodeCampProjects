@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <title>Video Games with the Family</title>
+    </head>
+    <body>
+        <main>
+
+            <form id="survey-form">
+              <div id="main-background-div">
+              </div>
+              <div id="main-div">
+              <div id="title-row" class="row">
+                    <h1 id="title">Video Games with the Family</h1>
+              </div>
+              <div class="row">
+                    <p id="description">
+                      This survey seeks to better understand the usage 
+                      of video games in the modern day family structure.  
+                      It is the intent behind the questions in this survey 
+                      to remain un-bias on any contreversial topics
+                      that surround video games and the family structure.
+                      Please answer each question honestly, as it will have
+                      an effect on our research.
+                      <br>Thank you for your time!
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        <label id="name-label" for="name">
+                            *Name:
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <input id="name" type="text" placeholder="e.g. Jack Jill"
+                         size="30" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        <label id="email-label" for="email">
+                            *Email:
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <input id="email" type="email" placeholder="JackJill@example.com" 
+                        pattern="" size="30" title="Must be a valid email address" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        <label id="number-label" for="age">
+                            *Age:
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <input id="number" name="age" type="number" placeholder="e.g 50" 
+                        min="1" max="125" step="1" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        <label id="role-label" for="role">
+                            What is your employement status? (select all that apply):
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <select id="dropdown" size="4">
+                            <option value="Student">Student</option>
+                            <option value="Full-Time">Full Time</option>
+                            <option value="Part-Time">Part Time</option>
+                            <option value="Dont-Work">I don't work</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="left-col">
+                        <label id="marital-label" for="marital">
+                            Marital Status:
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <input id="single" type="radio" name="marital-status" value="1">
+                        <label for="single">Single</label>
+
+                        <input id="married" type="radio" name="marital-status"  value="2">
+                        <label for="married">Married</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        <label id="children-label" for="children">
+                            How many Children?
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <select id="dropdown">
+                            <option value="zero">0</option>
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                            <option value="three">3</option>
+                            <option value="fourOrMore">4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">Do you like to play video games?</div>
+                    <div class="right-col">
+                        <input id="none" type="radio" name="game-usage" value="1">
+                        <label for="none">I don't play video games</label>
+
+                        <input id="occasion" type="radio" name="game-usage"  value="2">
+                        <label for="occasion">I like to play on occasion</label>
+
+                        <input id="regularly" type="radio" name="game-usage" value="3">
+                        <label for="regularly">I play quite regularly</label>
+
+                        <input id="hardcore" type="radio" name="game-usage" value="4">
+                        <label for="hardcore">I consider myself a hardcore gamer</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="left-col">
+                            <label for="hoursOfPlay">
+                                How many hours per week, on average, do you play video games?
+                            </label>
+                        </div>
+                        <div class="right-col">
+                           <input id="hoursOfPlay" type="number" placeholder="e.g 50" 
+                        min="1" max="125" step="1" pattern="/\d*/">
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        Please select all genres that you like to play:
+                    </div>
+                    <div class="right-col">    
+                        <div id="genre-row1">
+                            <input id="platform" type="checkbox" 
+                                   name="platform" value="platform" />
+                            <label for="platform">Platform Jumper</label>
+                            
+                            <input id="shooter" type="checkbox" 
+                                   name="shooter" value="shooter" />
+                            <label for="shooter">First Person Shooter</label>
+                            
+                            <input id="scroller" type="checkbox" 
+                                   name="scroller" value="scroller" />
+                            <label for="scroller">Side Scroller</label>
+                        </div>
+                        <div id="genre-row2">
+                            <input id="Survival" type="checkbox" 
+                                   name="Survival" value="Survival" />
+                            <label for="Survival">Survival/Survival Horror</label>
+                            
+                            <input id="rpg" type="checkbox" name="rpg" value="rpg" />
+                            <label for="rpg">Role Playing</label>
+                            
+                            <input id="mmorpgs" type="checkbox" 
+                                   name="mmorpgs" value="mmorpgs" />
+                            <label for="mmorpgs">MMORPGS</label>
+                        </div>
+                        <div id="genre-row">
+                            <input id="simulation" type="checkbox" 
+                                   name="simulation" value="simulation" />
+                            <label for="simulation">Life Simulation</label>
+                            
+                            <input id="sports" type="checkbox" name="sports" value="sports" />
+                            <label for="sports">Sports</label>
+                            
+                            <input id="strategy" type="checkbox" name="strategy" value="strategy" />
+                            <label for="strategy">Strategy</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="left-col">
+                        <label id="thoughts-label" for="thoughts">
+                            Please enter any thoughts you may have about your families 
+                            experience with video games:
+                        </label>
+                    </div>
+                    <div class="right-col">
+                        <textarea id="thoughts" rows="3" cols="40" 
+                        placeholder="Enter comments here..." wrap="hard"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button id="submit" type="submit" name="submit" value="submit-true">Submit</button>
+                </div>
+              </div>
+            </form>
+        </main>
+    </body>
+</html>
