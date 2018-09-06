@@ -4,6 +4,7 @@ body {
     background: url(https://images.unsplash.com/photo-1528660493888-ab6f4761e036?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e092fab75729f65747fc0a8be035d8a9) no-repeat center;
     background-attachment: fixed;
     background-size: cover;
+    overflow-y:scroll;
 }
 
 .skip-link {
@@ -28,8 +29,8 @@ body {
 main {
     background-color: white;
     border-top: 1px solid #162129;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -42,7 +43,7 @@ nav {
     width: 100%;
     color: white;
     background: rgba(54, 69, 79, .5);
-    height: 60px;
+    min-height: 60px;
     display: flex;
     align-items: center;
     position: -webkit-sticky;
@@ -66,7 +67,6 @@ nav {
 }
 
 .header-title a:hover {
-    color: green;
     font-size: 1.7rem;
 }
 
@@ -89,19 +89,61 @@ nav ul * {
     margin: 0 12px 0 10px;
     text-decoration: none;
     border-left: 1px solid white;
+    -webkit-transition: background-image 2;
+    transition: background-image 2;
 }
 
 .nav-link a:hover {
-    background: rgba(1, 255, 255, 0.3);
-    color: #ff0000;
-    border-left: 1px solid #ff0000;
-    text-shadow: 1px 1px 4px #000000;
+    background-image: radial-gradient(#36454F, #212121);
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .active {
     background: rgba(1, 55, 55, 0.3);
     color: #ff0000;
     border-left: 1px solid #ff0000;
+}
+
+@media (max-width: 765px){  
+  nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-title {
+        margin: auto;
+      padding: 10px 0 10px 0;
+  }
+  
+  nav ul {
+    display: block;
+     width: 100%;
+     list-style-type: none;
+    padding: 0;
+        margin: 0;
+  }
+  
+  nav ul *{
+    display: block;
+    float:none;
+  }
+  
+  .nav-link a {
+    border-left: none;
+    border-top: 1px solid white;
+        padding: 10px 0 10px 0; 
+  }
+  
+  .nav-link a:hover {
+    background-image: radial-gradient(#36454F, #212121);
+    border-top: 1px solid #ff0000;
+    border-left: none;
+    text-shadow: 1px 1px 4px #000000;
+}
+
 }
 
 /*
@@ -116,6 +158,7 @@ nav ul * {
     flex-direction: column;
     line-height: 1.5;
     letter-spacing: 1.3px;
+
 }
 
 #welcome-section h1 {
@@ -131,10 +174,11 @@ nav ul * {
     padding: 15px;
     margin: 10px auto 0 auto;
     transition-duration: 0.3s;
+  transition: background-image 1s;
 }
 
 #contact-link:hover {
-    background-color: #4CAF50;
+    background-image: radial-gradient(#36454F, #212121);
 }
 
 /*
@@ -145,7 +189,7 @@ nav ul * {
     margin: auto;
     padding-top: 30px;
     padding-bottom: 75px;
-    width: 800px;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,12 +203,13 @@ nav ul * {
     font-size: 1.5rem;
 }
 
-#about p {
+#about-div p {
     line-height: 1.4;
     margin-top: 20px;
     font-size: 1.1rem;
     font-family: Raleway, sans-serif;
     text-align: justify;
+  padding: 0 20px 0 20px;
 }
 
 /*
@@ -199,8 +244,7 @@ NOTE: Use object-fit: cover; for each image.
     justify-content: center;
     align-items: center;
     padding: 50px;
-    width: 1000px;
-    height: 300px;
+    max-width: 1000px;
 }
 
 .project-hr {
@@ -221,8 +265,8 @@ NOTE: Use object-fit: cover; for each image.
 
 .project-tile-img {
     margin-right: 30px;
-    width: 250px;
-    height: 200px;
+    max-width: 350px;
+    max-height: 250px;
     object-fit: cover;
     transition-duration: 0.3s;
     border: 2px solid #162129;
@@ -230,13 +274,10 @@ NOTE: Use object-fit: cover; for each image.
     box-shadow: -8px 4px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.project-tile-img:hover {}
-
 .project-tile-description {
     margin-left: 30px;
     padding: 20px;
-    width: 400px;
-    height: 300px;
+    max-width: 400px;
     text-align: justify;
 }
 
@@ -251,6 +292,21 @@ NOTE: Use object-fit: cover; for each image.
     border-bottom: 1px solid #162129;
 }
 
+@media (max-width: 765px){  
+  .project-tile {
+    flex-direction: column;
+  }
+  
+  .project-tile-img {
+    margin: 0;
+  }
+  
+  .project-tile-description {
+    margin: 0;
+  }
+
+}
+
 /*
 ----------Section: Resume----------
 */
@@ -258,9 +314,9 @@ NOTE: Use object-fit: cover; for each image.
 #resume {
     background-color: #C2C2C2;
     margin: auto;
-    padding-top: 50px;
+padding-top: 50px;
     padding-bottom: 75px;
-    width: 800px;
+    max-width: 800px;
 }
 
 #resume h2 {
@@ -279,6 +335,11 @@ p {
     font-family: Raleway, sans-serif;
 }
 
+#degree-sublist {
+  list-style-type: none;
+      margin-left: 20px;
+}
+
 /*
 ----------Footer: Contact----------
 */
@@ -292,6 +353,7 @@ footer {
     text-align: center;
     align-items: center;
     justify-content: center;
+
 }
 
 footer h2 {
@@ -300,15 +362,15 @@ footer h2 {
     border-top: solid white;
     padding: 10px 0 10px 0;
     font-size: 1.5rem;
-    margin: 47px 0 30px 0;
+      margin: 47px 0 30px 0;
 }
 
 #contact-div {
     display: flex;
     text-align: center;
     align-items: center;
-    border: solid blue;
-    padding-right: 100px;
+  padding-right: 100px;
+
 }
 
 #contact-div-left {
@@ -317,8 +379,7 @@ footer h2 {
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: solid green;
-    width: 350px;
+  max-width: 350px;
 }
 
 #personal-photo {
@@ -328,6 +389,7 @@ footer h2 {
     border: 2px solid #162129;
     border-radius: 100%;
     box-shadow: -8px 4px 20px 0 rgba(0, 0, 0, 0.3);
+  
 }
 
 #contact-social-icons {
@@ -343,22 +405,21 @@ footer h2 {
 }
 
 #contact-div-right {
-    border-left: solid white;
+  border-left: solid white;
     display: flex;
     flex-direction: column;
     text-align: left;
     align-items: center;
     justify-content: flex-start;
-    position: relative;
-    border: solid red;
-    left: 100px;
-    width: 350px;
+position: relative;
+  left: 100px;
+    max-width: 350px;
 }
 
 #contact-div-right-list {
     list-style-type: none;
-    margin: 0;
-    padding: 15px 0 15px 20px;
+  margin: 0;
+  padding: 15px 0 15px 20px;
 }
 
 #contact-div-right-list * {
@@ -366,11 +427,27 @@ footer h2 {
 }
 
 .div-right-link {
-    color: white;
+  color: white;
     text-decoration: none;
 }
 
 footer small {
-    display: block;
-    margin: 40px 0 20px 0;
+  display: block;
+  margin: 40px 0 20px 0;
+}
+
+@media (max-width: 765px){ 
+  #contact-div {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  #contact-div-left {
+  margin-bottom: 25px;
+  }
+    
+    #contact-div-right {
+      position: static;
+    }
+
 }

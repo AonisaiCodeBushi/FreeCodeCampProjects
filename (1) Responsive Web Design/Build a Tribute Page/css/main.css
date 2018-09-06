@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+#top-div{
+  background-image: linear-gradient(#D1C4E9, #FFFFFF);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23b29cd6' fill-opacity='0.07'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+#img-caption{
+  letter-spacing: 1px;
+}
+
+#timeline-title{
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+#tribute-info{
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-image: linear-gradient(#FFFFFF, #E8EAF6);
+  line-height: 1.6;
+}
+
+li {
+  text-align: left;
+  padding-top:2%;
+  padding-bottom: 2%;
+}
+
+#tribute-links{
+  background-color: #E8EAF6;
+}
